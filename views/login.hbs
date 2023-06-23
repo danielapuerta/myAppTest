@@ -1,29 +1,28 @@
-<form id="userForm" name="userForm"> 
-<div>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username">
-</div>
+<form id="userForm" name="userForm">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+    </div>
 
-<div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email">
-</div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+    </div>
 
-{{!-- <div>
-    <label for="pass">Password (8 characters minimum):</label>
-    <input type="password" id="pass" name="password"
-           minlength="8" required>
-</div> --}}
+    {{!-- <div>
+        <label for="pass">Password (8 characters minimum):</label>
+        <input type="password" id="pass" name="password" minlength="8" required>
+    </div> --}}
 
-<input type="submit" value="Login">
+    <input type="submit" value="Login">
 
 </form>
 
 
 <script>
 
-$(function(){
-        $("#userForm").on("submit", function(event) {
+    $(function () {
+        $("#userForm").on("submit", function (event) {
             event.preventDefault();
 
             var oUser = {
@@ -32,8 +31,17 @@ $(function(){
             };
             console.log(oUser);
 
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:3000/login",
+                data: oUser,
+                //success: success,
+                dataType: JSON
+            });
 
-        });
-    }) 
+        });//end of user form func
+
+
+    })//end of main function
 
 </script>
