@@ -21,8 +21,9 @@ router.get('/login', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next) {
+  console.log("This is POSTMAN")
   console.log(req.body)
-  res.status(200).send("Data received!")
+  res.status(200).send("Data received ON POSTMAN!")
 });
 
 module.exports = router;

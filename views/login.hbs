@@ -26,20 +26,26 @@
             event.preventDefault();
 
             var oUser = {
-                'username': $('input[name=username]').val(),
-                'email': $('input[name=email]').val()
-            };
-            console.log(oUser);
+                username: $('input[name=username]').val(),
+                email: $('input[name=email]').val()
+            }
 
             $.ajax({
-                type: "POST",
-                url: "http://localhost:3000/login",
+                type: 'POST',
+                url: 'http://localhost:3000/login',
                 data: oUser,
-                //success: success,
-                dataType: JSON
+                //dataType: 'json',
+                success: function (data, status) {
+                    console.log("DATA HERE " + oUser)
+                },
+                error: function (data, status) {
+                    alert('POST failed.');
+                }
             });
 
+
         });//end of user form func
+
 
 
     })//end of main function
