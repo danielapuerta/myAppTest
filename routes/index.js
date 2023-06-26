@@ -26,4 +26,11 @@ router.post('/login', function(req, res, next) {
   res.status(200).send("Data received ON POSTMAN!")
 });
 
+//testing CRUD 
+router.get('/userProfile', function(req, res, next) {
+  res.render('login', { title: 'SeniorCare' });
+});
+
+
+
 module.exports = router;
